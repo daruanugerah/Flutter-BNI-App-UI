@@ -1,3 +1,4 @@
+import 'package:bni_ui/widgets/menu_list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -32,6 +33,17 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget menuList() {
+      return Expanded(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            MenuList(),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       body: Stack(
         children: [
@@ -47,6 +59,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 header(),
+                menuList(),
               ],
             ),
           ),
