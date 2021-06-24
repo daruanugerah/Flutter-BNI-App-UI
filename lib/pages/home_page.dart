@@ -1,7 +1,18 @@
+import 'package:bni_ui/pages/kredit_page.dart';
+import 'package:bni_ui/pages/qr_page.dart';
+import 'package:bni_ui/pages/rekening_page.dart';
 import 'package:bni_ui/widgets/menu_list.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int selectedPage = 0;
+  PageController pageController = PageController(initialPage: 0);
+
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -34,11 +45,39 @@ class HomePage extends StatelessWidget {
     }
 
     Widget menuList() {
-      return Expanded(
+      return Container(
+        height: 40,
+        margin: EdgeInsets.only(bottom: 23),
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
-            MenuList(),
+            MenuList(
+              selectedIndex: selectedPage,
+              onTap: (index) {
+                setState(() {
+                  selectedPage = index;
+                });
+                pageController.jumpToPage(selectedPage);
+              },
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget pageView() {
+      return Expanded(
+        child: PageView(
+          controller: pageController,
+          onPageChanged: (index) {
+            setState(() {
+              selectedPage = index;
+            });
+          },
+          children: [
+            RekeningPage(),
+            KreditPage(),
+            QrPage(),
           ],
         ),
       );
@@ -60,6 +99,7 @@ class HomePage extends StatelessWidget {
               children: [
                 header(),
                 menuList(),
+                pageView(),
               ],
             ),
           ),
