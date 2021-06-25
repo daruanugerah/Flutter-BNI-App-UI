@@ -1,3 +1,4 @@
+import 'package:bni_ui/pages/transfer_page.dart';
 import 'package:bni_ui/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -132,22 +133,32 @@ class RekeningPage extends StatelessWidget {
                             Container(
                               height: 85,
                               width: 85,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/icon_send.png',
-                                    width: 27,
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    'Transfer',
-                                    style:
-                                        primaryTextStyle.copyWith(fontSize: 12),
-                                  )
-                                ],
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => TransferPage(),
+                                    ),
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/icon_send.png',
+                                      width: 27,
+                                    ),
+                                    SizedBox(
+                                      height: 8,
+                                    ),
+                                    Text(
+                                      'Transfer',
+                                      style: primaryTextStyle.copyWith(
+                                          fontSize: 12),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                             Container(
@@ -278,10 +289,8 @@ class RekeningPage extends StatelessWidget {
                               Text(
                                 'Lihat Semua',
                                 style: orangeTextStyle.copyWith(
-                                  fontSize: 12,
-                                  decoration: TextDecoration.underline
-                                ),
-
+                                    fontSize: 12,
+                                    decoration: TextDecoration.underline),
                               ),
                             ],
                           ),
