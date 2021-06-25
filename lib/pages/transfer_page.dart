@@ -1,4 +1,5 @@
 import 'package:bni_ui/models/dictionary_model.dart';
+import 'package:bni_ui/pages/transfer_other_page.dart';
 import 'package:bni_ui/theme.dart';
 import 'package:bni_ui/widgets/dictionary_list.dart';
 import 'package:flutter/material.dart';
@@ -94,21 +95,31 @@ class TransferPage extends StatelessWidget {
                 Container(
                   height: 85,
                   width: 85,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/icon_trf_other.png',
-                        width: 35,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'Ke Bank Lain',
-                        style: primaryTextStyle.copyWith(fontSize: 12),
-                      )
-                    ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TransferOtherPager(),
+                        ),
+                      );
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/icon_trf_other.png',
+                          width: 35,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          'Ke Bank Lain',
+                          style: primaryTextStyle.copyWith(fontSize: 12),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
