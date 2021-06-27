@@ -381,6 +381,34 @@ class _TransferOtherPagerState extends State<TransferOtherPager> {
             SizedBox(
               height: 24,
             ),
+            Container(
+              margin: EdgeInsets.only(bottom: 30),
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                    backgroundColor: Color(0xffFF5757),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100))),
+                child: Container(
+                  width: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Lanjutkan',
+                        style: whiteTextStyle.copyWith(fontSize: 12),
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                        size: 15,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       );
