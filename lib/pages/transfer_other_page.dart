@@ -384,6 +384,7 @@ class _TransferOtherPagerState extends State<TransferOtherPager> {
             Container(
               margin: EdgeInsets.only(bottom: 30),
               width: double.infinity,
+              height: 48,
               child: TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
